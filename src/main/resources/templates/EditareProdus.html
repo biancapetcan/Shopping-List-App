@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editează Produs</title>
+</head>
+<body>
+<h1 style="text-align: center;">Editează Produs</h1>
+    <form th:action="@{/editare/{id}(id=${produs.id})}" method="post">
+
+    <label for="numeProdus">Nume Produs</label>
+    <input type="text" id="numeProdus" name="numeProdus" th:value="${produs.numeProdus}" required>
+
+    <label for="pretProdus">Preț Produs</label>
+    <input type="number" id="pretProdus" name="pretProdus" th:value="${produs.pretProdus}" required>
+
+    <label for="cantitateProdus">Cantitate Produs</label>
+    <input type="number" id="cantitateProdus" name="cantitateProdus" th:value="${produs.cantitateProdus}" required>
+
+    <button type="submit">Salvează Modificările</button>
+</form>
+
+<a th:href="@{/}">Înapoi la lista de produse</a>
+</body>
+</html>

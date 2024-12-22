@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produs Nou</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container my-4">
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-4">
+     <h2 class="text-center mb-5">Produs Nou</h2>
+        <form method="post" th:object="${ListaDto}">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-from-label">ID Produs</label>
+                <div class="col-sm-8">
+                    <input class="form-control" th:filed="${ListaDto.Id}">
+                    <p th:if="${fileds.hasErrors{'Id'}"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-from-label">Nume Produs</label>
+                <div class="col-sm-8">
+                    <input class="form-control" th:filed="${ListaDto.NumeProdus}">
+                    <p th:if="${fileds.hasErrors{'NumeProdus'}"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-from-label">Pret Produs</label>
+                <div class="col-sm-8">
+                    <input class="form-control" th:filed="${ListaDto.PretProdus}">
+                    <p th:if="${fileds.hasErrors{'PretProdus'}"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-from-label">Cantitate Produs</label>
+                <div class="col-sm-8">
+                    <input class="form-control" th:filed="${ListaDto.CantitateProdus}">
+                    <p th:if="${fileds.hasErrors{'CantitateProdus'}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" href="/index">Inapoi</a>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nume Produs</th>
+        <th>Cantitate Produs</th>
+        <th>Pret Produs</th>
+        <th>Acțiuni</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="produs : ${produse}">
+        <tr>
+            <td th:text="${produs.id}"></td>
+            <td th:text="${produs.NumeProdus}"></td>
+            <td th:text="${produs.CantitateProdus}"></td>
+            <td th:text="${produs.PretProdus}"></td>
+            <td class="actions">
+                <!-- Butonul de Editare -->
+                <a th:href="@{/editare/{id}(id=${produs.id})}" class="add-btn">Editeaza</a>
+
+                </a>
+                <!-- Butonul de Ștergere -->
+                <a th:href="@{/produse/sterge/{id}(id=${produs.id})}" onclick="return confirm('Sigur vrei să ștergi acest produs?')">
+                    <button class="delete-btn">Șterge</button>
+                </a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>

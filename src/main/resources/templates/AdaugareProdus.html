@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Adaugă Produs</title>
+</head>
+<body>
+    <h1>Adaugă Produs</h1>
+    <form action="/produse/adaugare" method="post">
+        <label for="numeProdus">Nume Produs</label>
+        <input type="text" id="numeProdus" name="numeProdus" required>
+        <br>
+
+        <label for="pretProdus">Pret Produs</label>
+        <input type="number" id="pretProdus" name="pretProdus" required>
+        <br>
+
+        <label for="cantitateProdus">Cantitate Produs</label>
+        <input type="number" id="cantitateProdus" name="cantitateProdus" required>
+        <br>
+
+        <button type="submit">Adaugă Produs</button>
+    </form>
+
+    <br>
+
+    <a th:href="@{/}" class="add-btn">Inapoi la lista de produse</a>
+</body>
+</html>

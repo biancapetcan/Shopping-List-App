@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmare Ștergere</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .message {
+        font-size: 20px;
+        color: #ff0000;
+        margin-bottom: 20px;
+    }
+    .back-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    .back-btn:hover {
+        background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="message" th:text="${mesaj}">Acest produs a fost șters.</div>
+<a href="/" class="back-btn">Înapoi la lista de cumpărături</a>
+</body>
+</html>

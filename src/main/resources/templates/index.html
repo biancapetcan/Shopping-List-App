@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Produse</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Lista Produse</h1>
+
+<div style="text-align: center;">
+    <a th:href="@{'/AdaugareProdus'}" class="add-btn">Adaugă un produs</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nume Produs</th>
+        <th>Cantitate Produs</th>
+        <th>Pret Produs</th>
+        <th>Acțiuni</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="produs : ${produse}">
+        <tr>
+            <td th:text="${produs.id}"></td>
+            <td th:text="${produs.NumeProdus}"></td>
+            <td th:text="${produs.CantitateProdus}"></td>
+            <td th:text="${produs.PretProdus}"></td>
+            <td class="actions">
+                <!-- Butonul de Editare -->
+                <a th:href="@{/editare/{id}(id=${produs.id})}" class="add-btn">Editeaza</a>
+
+                </a>
+                <!-- Butonul de Ștergere -->
+                <a th:href="@{/produse/sterge/{id}(id=${produs.id})}" onclick="return confirm('Sigur vrei să ștergi acest produs?')">
+                    <button class="delete-btn">Șterge</button>
+                </a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>
