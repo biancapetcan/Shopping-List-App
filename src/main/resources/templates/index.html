@@ -8,41 +8,59 @@
 </head>
 <body>
 <h1>Lista Produse</h1>
-
 <div style="text-align: center;">
-    <a th:href="@{'/AdaugareProdus'}" class="add-btn">Adaugă un produs</a>
+    <a class="btn btn-primary" href="/create">Adaugă un produs</a>
 </div>
 
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Nume Produs</th>
-        <th>Cantitate Produs</th>
-        <th>Pret Produs</th>
-        <th>Acțiuni</th>
-    </tr>
-    </thead>
-    <tbody>
-    <th:block th:each="produs : ${produse}">
+<form id="multiDeleteForm" method="post" th:action="@{/deleteMultiple}">
+    <table>
+        <thead>
         <tr>
-            <td th:text="${produs.id}"></td>
-            <td th:text="${produs.NumeProdus}"></td>
-            <td th:text="${produs.CantitateProdus}"></td>
-            <td th:text="${produs.PretProdus}"></td>
-            <td class="actions">
-                <!-- Butonul de Editare -->
-                <a th:href="@{/editare/{id}(id=${produs.id})}" class="add-btn">Editeaza</a>
-
-                </a>
-                <!-- Butonul de Ștergere -->
-                <a th:href="@{/produse/sterge/{id}(id=${produs.id})}" onclick="return confirm('Sigur vrei să ștergi acest produs?')">
-                    <button class="delete-btn">Șterge</button>
-                </a>
-            </td>
+            <th>Selectează</th>
+            <th>ID</th>
+            <th>Nume Produs</th>
+            <th>Cantitate Produs</th>
+            <th>Pret Produs</th>
+            <th>Cumpărat</th>
+            <th>Acțiuni</th>
         </tr>
-    </th:block>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <th:block th:each="produs : ${produse}">
+            <tr th:classappend="${produs.cumparat} ? 'cumparat' : ''">
+                <td>
+                    <input type="checkbox" name="selectedIds" th:value="${produs.id}">
+                </td>
+                <td th:text="${produs.id}"></td>
+                <td th:text="${produs.numeProdus}"></td>
+                <td th:text="${produs.cantitateProdus}"></td>
+                <td th:text="${produs.pretProdus}"></td>
+                <td>
+                    <span th:text="${produs.cumparat} ? 'Da' : 'Nu'"></span>
+                </td>
+                <td>
+                    <!-- Butonul Cumpără -->
+                    <form th:action="@{/marcheazaCumpărat}" method="post" style="display: inline;">
+                        <input type="hidden" name="id" th:value="${produs.id}" />
+                        <button type="submit" class="btn" th:text="${produs.cumparat} ? 'Anulează' : 'Cumpără'"></button>
+                    </form>
+
+
+                    <!-- Butonul Editează -->
+                    <a th:href="@{/editare(id=${produs.id})}" class="btn btn-primary">Editează</a>
+
+                    <!-- Butonul Șterge -->
+                    <a th:href="@{/stergere(id=${produs.id})}" class="btn btn-danger">Șterge</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div style="margin-top: 10px;">
+        <button type="submit" class="btn btn-primary">Șterge Produsele Selectate</button>
+    </div>
+
+</form>
+
 </body>
 </html>

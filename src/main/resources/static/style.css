@@ -1,15 +1,101 @@
-/* styles.css */
+/* Stil general */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 h1 {
     text-align: center;
     color: #4CAF50;
+    margin-bottom: 20px;
 }
 
+/* Formular centralizat */
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    color: #4CAF50;
+    margin-bottom: 30px;
+}
+
+/* Design câmpuri formular */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin-top: 8px;
+    box-sizing: border-box;
+}
+
+.form-control-plaintext {
+    padding: 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+/* Stiluri pentru butoane */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+a.btn-outline-primary {
+    background-color: #fff;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+    padding: 12px 20px;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+a.btn-outline-primary:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Stil pentru câmpuri cu erori */
+.text-danger {
+    color: #e53935;
+    font-size: 0.9em;
+}
+
+/* Design rânduri pentru tabel */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -33,41 +119,4 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #ddd;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    border-radius: 5px;
-    margin: 2px;
-}
-
-a:hover {
-    background-color: #45a049;
-}
-
-.actions button {
-    padding: 5px 10px;
-    margin: 2px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.edit-btn {
-    background-color: #ff9800;
-}
-
-.edit-btn:hover {
-    background-color: #e68900;
-}
-
-.delete-btn {
-    background-color: #f44336;
-}
-
-.delete-btn:hover {
-    background-color: #e53935;
 }

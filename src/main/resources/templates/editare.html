@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produs Nou</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 <div class="container my-4">
     <div class="row">
         <div class="col-md-8 mx-auto rounded border p-4">
-            <h2 class="text-center mb-5">Produs Nou</h2>
+            <h2 class="text-center mb-5">Editeaza Produs</h2>
             <form method="post" th:object="${listaDto}">
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-from-label">ID Produs</label>
+                    <div class="col-sm-8">
+                        <input class="form-control-plaintext" readonly th:value="${lista.id}" />
 
-
+                    </div>
+                </div>
                 <div class="row mb-3">
                     <label class="col-sm-4 col-from-label">Nume Produs</label>
                     <div class="col-sm-8">
@@ -47,6 +53,7 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                     <br>
+
                     <div class="col-sm-4 d-grid">
                         <a class="btn btn-outline-primary" href="/">Inapoi</a>
                     </div>

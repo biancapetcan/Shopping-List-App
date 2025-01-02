@@ -1,10 +1,16 @@
-package com.bianca.Lista.model;
+/**
+ * Clasa entitate pentru reprezentarea unui produs în baza de date.
+ * @author Petcan Bianca-Andreea
+ * @version 1 Ianuarie 2025
+ */
 
+package com.bianca.Lista.model;
 import jakarta.persistence.*;
 
 @Entity
 @Table
 public class Lista {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,6 +19,17 @@ public class Lista {
     private float PretProdus;
     private int CantitateProdus;
 
+    // Noua coloană pentru starea cumpărat/necumpărat
+    private boolean cumparat = false;
+
+    // Getters și Setters
+    public boolean isCumparat() {
+        return cumparat;
+    }
+
+    public void setCumparat(boolean cumparat) {
+        this.cumparat = cumparat;
+    }
     public Long getId() {
         return id;
     }

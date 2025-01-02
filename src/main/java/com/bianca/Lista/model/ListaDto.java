@@ -1,49 +1,55 @@
-package com.bianca.Lista.model;
+/**
+ * Clasa DTO pentru transferul datelor unui produs.
+ * @author Petcan Bianca-Andreea
+ * @version 1 Ianuarie 2025
+ */
 
-import jakarta.validation.constraints.NotEmpty;
+package com.bianca.Lista.model;
+import jakarta.validation.constraints.*;
 
 public class ListaDto {
-    @NotEmpty(message = "Introduceti ID Produs")
-    private static Long id;
 
-    @NotEmpty(message = "Introduceti Numele Produsului")
-    private static String NumeProdus;
+    @NotNull(message = "Introduceti ID Produs")
+    private Long id;
 
-    @NotEmpty(message = "Introduceti Pretul Produsului")
-    private static float PretProdus;
+    @NotNull(message = "Introduceti Numele Produsului")
+    private String numeProdus;
 
-    @NotEmpty(message = "Introduceti Cantitatea Produsului")
-    private static int CantitateProdus;
+    @NotNull(message = "Introduceti Pretul Produsului")
+    private float pretProdus;
+
+    @NotNull(message = "Introduceti Cantitatea Produsului")
+    private int cantitateProdus;
 
     public Long getId() {
         return id;
     }
 
-    public static void setId(Long ID) {
-        ID = id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNumeProdus() {
-        return NumeProdus;
+        return numeProdus;
     }
 
-    public static void setNumeProdus(String numeProdus) {
-        NumeProdus = numeProdus;
+    public void setNumeProdus(String numeProdus) {
+        this.numeProdus = numeProdus;
     }
 
     public float getPretProdus() {
-        return PretProdus;
+        return pretProdus;
     }
 
-    public static void setPretProdus(float pretProdus) {
-        PretProdus = pretProdus;
+    public void setPretProdus(float pretProdus) {
+        this.pretProdus = pretProdus;
     }
 
     public int getCantitateProdus() {
-        return CantitateProdus;
+        return cantitateProdus;
     }
 
-    public static void setCantitateProdus(int cantitateProdus) {
-        CantitateProdus = cantitateProdus;
+    public void setCantitateProdus(int cantitateProdus) {
+        this.cantitateProdus = cantitateProdus;
     }
 }
